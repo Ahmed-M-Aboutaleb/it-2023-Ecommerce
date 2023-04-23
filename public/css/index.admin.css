@@ -1,0 +1,21 @@
+
+
+.adminList li {
+    display: flex;
+    margin: .7rem 0;
+}
+
+.adminList li p {
+    width: 50%;
+}
+
+
+.adminList li div {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.adminList li div a {
+    margin: 0 0.5rem;
+}

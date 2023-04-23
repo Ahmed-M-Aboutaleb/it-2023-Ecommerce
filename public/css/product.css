@@ -1,0 +1,16 @@
+.product img {
+    width: 100%;
+}
+
+.product .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 992px) {
+    .product .info {
+        margin-top: 6rem;
+    }
+}

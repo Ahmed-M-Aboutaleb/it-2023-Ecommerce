@@ -1,0 +1,60 @@
+.login {
+    height: calc(90vh - 5rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login .title {
+    color: rgb(76 112 255);
+    margin-bottom: 1rem;
+}
+
+.login .subTitle {
+    margin-bottom: 4rem;
+}
+
+.login .alert {
+    text-align: center;
+}
+
+.login form {
+    width: clamp(250px, 60%, 500px);
+}
+
+.login form input[type="email"],.login form input[type="password"],.login form input[type="text"] {
+    padding: 0.7rem 0.7rem 0.7rem 2rem;
+}
+
+.login .highlight {
+    border-color: #fe8686;
+}
+
+.login .highlight:focus {
+    border-color: #fe8686;
+    box-shadow: 0 0 0 0.25rem rgb(253 13 13 / 25%);
+}
+
+.login form .icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 2.5%;
+}
+
+.login form button {
+    width: 100%;
+    background-color: rgb(76 112 255);
+    padding: 0.7rem;
+}
+
+.login .signup {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.login .signup a {
+    text-decoration: none;
+    color: gray;
+}
