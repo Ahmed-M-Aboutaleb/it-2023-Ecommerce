@@ -1,4 +1,4 @@
-<main class="container d-flex justify-content-center align-items-center" style="height: 80vh;">
+<main class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
     <div class="card" style="width: 20rem;">
         <div class="card-body">
             <form method="post" class="needs-validation" novalidate action="order.php">
@@ -30,6 +30,9 @@
                 </div>
                 <div class="mb-3">
                     <input class="form-control" type="text" name="date" placeholder="date (year-month-day)">
+                </div>
+                <div class="mb-3">
+                    <input class="form-control" type="text" name="totalPrice" value="<?php echo $order['totalPrice'] ?>" placeholder="total price">
                 </div>
                 <div class="mb-3 text-center">
                     <input type="checkbox" class="btn-check" name="status" id="btn-check-outlined" autocomplete="off">

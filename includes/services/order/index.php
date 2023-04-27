@@ -69,15 +69,16 @@ Version: 1.0
     
 */
 
-function insertOrder($conn, $user, $product, $status, $date) {
-    if(!validateInput($user) || !validateInput($product) || !validateInput($date)) {
+function insertOrder($conn, $user, $totalPrice, $product, $status, $date) {
+    if(!validateInput($user) || !validateInput($totalPrice) || !validateInput($product) || !validateInput($date)) {
         return false;
     }
     $user = validateInput($user);
+    $totalPrice = validateInput($totalPrice);
     $product = validateInput($product);
     $status = validateInput($status);
     $date = validateInput($date);
-    $sql = "INSERT INTO orders (user, product, status, date) VALUES ('$user', '$product', '$status', '$date')";
+    $sql = "INSERT INTO orders (user, totalPrice, productId, status, date) VALUES ('$user', '$totalPrice', '$product', '$status', '$date')";
     if(!$conn->query($sql)) {
         return false;
     }
@@ -92,16 +93,17 @@ Parameters: $conn - The database connection. $id - The id of the order. $user - 
 Version: 1.0
 */
 
-function updateOrder($conn, $id, $user, $product, $status, $date) {
-    if(!validateInput($id) || !validateInput($user) || !validateInput($product) || !validateInput($date)) {
+function updateOrder($conn, $id, $user, $totalPrice, $product, $status, $date) {
+    if(!validateInput($id) || !validateInput($user) || !validateInput($totalPrice) || !validateInput($product) || !validateInput($date)) {
         return false;
     }
     $id = validateInput($id);
     $user = validateInput($user);
+    $totalPrice = validateInput($totalPrice);
     $product = validateInput($product);
     $status = validateInput($status);
     $date = validateInput($date);
-    $sql = "UPDATE orders SET user = '$user', product = '$product', status = '$status', date = '$date' WHERE id = $id";
+    $sql = "UPDATE orders SET user = '$user', totalPrice = '$totalPrice', productId = '$product', status = '$status', date = '$date' WHERE id = $id";
     if(!$conn->query($sql)) {
         return false;
     }

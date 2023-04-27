@@ -7,6 +7,7 @@
                     <th scope="col">id</th>
                     <th scope="col">User id</th>
                     <th scope="col">Product id</th>
+                    <th scope="col">Total price</th>
                     <th scope="col">Status</th>
                     <th scope="col">Date</th>
                     <th scope="col">Action</th>
@@ -19,11 +20,12 @@
                             echo "<tr>";
                             echo "<th scope='row'>" . $order['id'] . "</th>";
                             echo "<td><a class='text-decoration-none' href='/admin/user.php?id={$order['user']}'>" . $order['user'] . "</a></td>";
-                            echo "<td><a class='text-decoration-none' href='/admin/product.php?id={$order['product']}'>" . $order['product'] . "</a></td>";
-                            echo "<td>" . $order['date'] . "</td>";
+                            echo "<td><a class='text-decoration-none' href='/admin/product.php?id={$order['productId']}'>" . $order['productId'] . "</a></td>";
+                            echo "<th scope='row'>" . $order['totalPrice'] . "</th>";
                             print($order['status']) ?
                             "<td>Approved</td>"
                             : "<td>Pending</td>";
+                            echo "<td>" . $order['date'] . "</td>";
                             echo "<td><a class='btn btn-primary' href='/admin/order.php?id={$order['id']}'>View</a></td>";
                             echo "</tr>";
                     }

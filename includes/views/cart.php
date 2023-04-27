@@ -36,7 +36,7 @@
                                                 </button>
                                             </div>
                                             <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                                                <h6 class="mb-0"><?=$product['price']?>.00$</h6>
+                                                <h6 class="mb-0 price"><?=$product['price']?>.00$</h6>
                                             </div>
                                             <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                                                 <button class="btn btn-link" onclick="remove(<?php echo $product['id']?>)" class="text-muted"><i class="fas fa-times"></i></button>
@@ -57,21 +57,31 @@
                                     <div class="p-5">
                                     <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
                                     <hr class="my-4">
-
-                                    <div class="d-flex justify-content-between mb-4">
-                                        <h5 class="text-uppercase">items 3</h5>
-                                        <h5>€ 132.00</h5>
-                                    </div>
+                                    <?php if(isset($products) && $products != null): ?>
+                                        <?php foreach($products as $product):?>
+                                        <div class="d-flex justify-content-between mb-4">
+                                            <h5 class="text-uppercase"><?=$product['name']?></h5>
+                                            <h5><?=$product['price']?>.00 $</h5>
+                                        </div>
+                                        <?php endforeach; ?>
+                                    <?php else: ?>
+                                        <div class="d-flex justify-content-between mb-4">
+                                            <h5 class="text-uppercase">No products</h5>
+                                        </div>
+                                    <?php endif; ?>
 
                                     <hr class="my-4">
 
                                     <div class="d-flex justify-content-between mb-5">
                                         <h5 class="text-uppercase">Total price</h5>
-                                        <h5>€ 137.00</h5>
+                                        <h5>0.00 $</h5>
                                     </div>
-
-                                    <button type="button" class="btn btn-dark btn-block btn-lg"
-                                        data-mdb-ripple-color="dark">Register</button>
+                                    <?php if(isset($_SESSION['id'])): ?>
+                                        <button class="btn btn-dark btn-block btn-lg order">Order</button>
+                                    <?php else: ?>
+                                        <a type="button" class="btn btn-dark btn-block btn-lg"
+                                            data-mdb-ripple-color="dark">Signup</a>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div>
@@ -84,6 +94,28 @@
 
 <script>
 
+function calcPrice() {
+    var total = 0;
+    var prices = $('.price');
+    prices.each(function (index) {
+        var quantity = $(this).parent().siblings('.col-md-3.col-lg-3.col-xl-2.d-flex').children('input').val();
+        total += parseInt($(this).text()) * parseInt(quantity);
+    });
+    document.querySelector('.d-flex.justify-content-between.mb-5 > h5:nth-child(2)').innerHTML = total + '.00 $';
+}
+
+$(document).ready(function() {
+    calcPrice();
+    $('.order').click(function() {
+        $.post("/cart.php",
+        {
+            placeOrder: "true"
+        }, function() {
+            location.reload();
+        }());
+    });
+});
+
 function dec(id) {
     var currentVal = parseInt($(`#${id}`).val());
     $(`#${id}`).val(currentVal -1)
@@ -93,6 +125,7 @@ function dec(id) {
         quantity: currentVal -1,
         update: "true"
     });
+    calcPrice();
 }
 
 function inc(id) {
@@ -104,6 +137,7 @@ function inc(id) {
         quantity: currentVal +1,
         update: "true"
     });
+    calcPrice();
 }
 
 function remove(id) {

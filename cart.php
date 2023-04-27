@@ -4,11 +4,17 @@ $pageTitle = 'Cart';
 
 include_once($_SERVER["DOCUMENT_ROOT"] .'/init.php');
 include $_SERVER["DOCUMENT_ROOT"] .'/includes/services/cart/index.php';
-include $_SERVER["DOCUMENT_ROOT"] .'/includes/services/product/index.php';
+include_once($_SERVER["DOCUMENT_ROOT"] .'/includes/services/product/index.php');
 
 $products = array();
 if(isset($_POST["update"])) {
     updateQuantity($_POST["id"], $_POST['quantity']);
+}
+
+if(isset($_POST["placeOrder"])) {
+    placeOrder($conn);
+    unset($_SESSION['cart']);
+    header('Location: /');
 }
 
 if(isset($_POST["remove"])) {

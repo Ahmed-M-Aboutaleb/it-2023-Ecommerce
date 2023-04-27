@@ -1,4 +1,4 @@
-<main class="container d-flex justify-content-center align-items-center" style="height: 80vh;">
+<main class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
     <div class="card" style="width: 20rem;">
         <div class="card-body">
             <form method="post" action="product.php" class="needs-validation" novalidate enctype="multipart/form-data">

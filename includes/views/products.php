@@ -30,36 +30,36 @@
         </div>
         <div class="col-lg-9">
             <?php 
-                if($products) {
-                    echo '<div class="row">';
-                    while($product = $products->fetch_assoc()) {
-                        echo '<div class="col-lg-4">';
-                        echo '<div class="card shadow" style="width: 18rem; height: 33rem; margin: 2rem auto;">';
-                        echo "<a href='/product.php?id={$product["id"]}'>";
-                        echo "<img src='/public/images/products/{$product["image"]}' class='card-img-top'>";
-                        echo '<div class="card-body">';
-                        echo "<h5 class='card-title text-center'>{$product["name"]}</h5>";
-                        echo '<ul class="list-unstyled d-flex justify-content-center mb-1">';
-                        echo '<li>';
-                        for($i = 0; $i < $product["rating"]; $i++) {
-                            echo '<i class="text-warning fa-solid fa-star"></i>';
-                        }
-                        for($i = 0; $i < 5-$product["rating"]; $i++) {
-                            echo '<i class="text-muted fa-solid fa-star"></i>';
-                        }
-                        echo '</li>';
-                        echo '</ul>';
-                        echo '<p class="card-text text-center">$'. $product["price"] .'.00</p>';
-                        echo '</div>';
-                        echo '</a>';
-                        echo '</div>';
-                        echo '</div>';
-                    }
-                    echo '</div>';
-                } else {
-                    echo '<h1 class="text-center" style="margin-top: 25vh;">☹️ No products found!</h1>';
-                }
+                if($products):
             ?>
+                    <div class="row">
+                    <?php while($product = $products->fetch_assoc()): ?>
+                        <div class="col-lg-4">
+                            <div class="card shadow" style="width: clamp(225px, 90%, 18rem); height: 33rem; margin: 2rem auto;">
+                                <a href='/product.php?id=<?= $product["id"]?>'>
+                                    <img src='/public/images/products/<?= $product["image"]?>' class='card-img-top'>
+                                    <div class="card-body">
+                                        <h5 class='card-title text-center'><?= $product["name"] ?></h5>
+                                        <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                            <li>
+                                                <?php for($i = 0; $i < $product["rating"]; $i++): ?>
+                                                    <i class="text-warning fa-solid fa-star"></i>
+                                                <?php endfor; ?>
+                                                <?php for($i = 0; $i < 5-$product["rating"]; $i++): ?>
+                                                    <i class="text-muted fa-solid fa-star"></i>
+                                                <?php endfor; ?>
+                                            </li>
+                                        </ul>
+                                        <p class="card-text text-center"><?= $product["price"]?>.00</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    <?php endwhile; ?>
+                    </div>
+                <?php else: ?>
+                    <h1 class="text-center" style="margin-top: 25vh;">☹️ No products found!</h1>
+                <?php endif;?>
         </div>
     </div>
 </main>
