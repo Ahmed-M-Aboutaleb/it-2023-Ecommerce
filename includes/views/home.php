@@ -112,7 +112,7 @@
             <div class="row">
                 <div class="col-12 col-md-4 mb-4">
                     <div class="card h-100">
-                        <a href="shop-single.html">
+                        <a href="/products.php">
                             <img src="/public/images/feature_prod_01.jpg" class="card-img-top" alt="...">
                         </a>
                         <div class="card-body">
@@ -126,14 +126,14 @@
                                 </li>
                                 <li class="text-muted text-right">$12.00</li>
                             </ul>
-                            <a href="shop-single.html" class="h2 text-decoration-none text-dark">Flash light</a>
+                            <a href="/products.php" class="h2 text-decoration-none text-dark">Flash light</a>
                             <p class="text-muted">Reviews (24)</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-4 mb-4">
                     <div class="card h-100">
-                        <a href="shop-single.html">
+                        <a href="/products.php">
                             <img src="/public/images/feature_prod_02.jpg" class="card-img-top" alt="...">
                         </a>
                         <div class="card-body">
@@ -147,14 +147,14 @@
                                 </li>
                                 <li class="text-muted text-right">$101.00</li>
                             </ul>
-                            <a href="shop-single.html" class="h2 text-decoration-none text-dark">Smart Watch</a>
+                            <a href="/products.php" class="h2 text-decoration-none text-dark">Smart Watch</a>
                             <p class="text-muted">Reviews (48)</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-4 mb-4">
                     <div class="card h-100">
-                        <a href="shop-single.html">
+                        <a href="/products.php">
                             <img src="/public/images/feature_prod_03.jpg" class="card-img-top" alt="...">
                         </a>
                         <div class="card-body">
@@ -168,7 +168,7 @@
                                 </li>
                                 <li class="text-muted text-right">$154.00</li>
                             </ul>
-                            <a href="shop-single.html" class="h2 text-decoration-none text-dark">Camera</a>
+                            <a href="/products.php" class="h2 text-decoration-none text-dark">Camera</a>
                             <p class="text-muted">Reviews (74)</p>
                         </div>
                     </div>

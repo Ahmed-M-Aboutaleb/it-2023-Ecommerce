@@ -15,8 +15,10 @@ include($_SERVER["DOCUMENT_ROOT"] .'/includes/functions/getCSSFile.php');
     <title><?php getPageTitle() ?></title>
     <?php getCSSFile() ?>
     <link href="/public/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="/public/css/docs.css" rel="stylesheet">
     <link href="/public/css/icons.min.css" rel="stylesheet">
     <script src="/public/js/jquery-3.6.4.min.js"></script>
+    <script src="/public/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
 <?php 
@@ -37,6 +39,9 @@ include($_SERVER["DOCUMENT_ROOT"] .'/includes/functions/getCSSFile.php');
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/products.php">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/cart.php">Cart</a>
                 </li>
                 <?php if(isset($_SESSION["id"])) {
                     echo '

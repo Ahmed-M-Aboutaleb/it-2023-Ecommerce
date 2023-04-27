@@ -131,4 +131,25 @@ function deleteOrder($conn, $id) {
     return true;
 }
 
+/*
+
+Name: getOrdersCount()
+Description: This function will get the number of orders in the database.
+Parameters: $conn - The database connection.
+Version: 1.0
+
+*/
+
+function getOrdersCount($conn) {
+    $sql = "SELECT COUNT(*) AS count FROM orders";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if($result->num_rows <= 0) {
+        return false;
+    }
+    $result = $result->fetch_assoc();
+    return $result['count'];
+}
+
 ?>

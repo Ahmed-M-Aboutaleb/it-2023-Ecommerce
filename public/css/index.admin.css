@@ -1,21 +1,27 @@
-
-
-.adminList li {
-    display: flex;
-    margin: .7rem 0;
+.bg-first {
+    background-color: #857dcc;
+    background-image: linear-gradient(45deg,#4638c2 0%,#2d2587);
+    color: #fff !important;
+    border: 0px !important;
 }
 
-.adminList li p {
-    width: 50%;
+.bg-secound {
+    background-color: #5299e0;
+    background-image: linear-gradient(45deg,#4799eb 0%,#4280b4);
+    color: #fff !important;
+    border: 0px !important;
 }
 
-
-.adminList li div {
-    width: 50%;
-    display: flex;
-    justify-content: flex-end;
+.bg-third {
+    background-color: #d5a439;
+    background-image: linear-gradient(45deg,#e1a82d 0%,#dd9124);
+    color: #fff !important;
+    border: 0px !important;
 }
 
-.adminList li div a {
-    margin: 0 0.5rem;
+.bg-fourth {
+    background-color: #c77171;
+    background-image: linear-gradient(45deg,#d16767 0%,#c14f4f);
+    color: #fff !important;
+    border: 0px !important;
 }

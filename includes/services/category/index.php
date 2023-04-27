@@ -134,4 +134,25 @@ function deleteCategory($conn, $id) {
     return true;
 }
 
+/*
+
+Name: getCategoriesCount()
+Description: This function will get the count of categories in the database
+Parameters: $conn (object)
+version: 1.0
+
+*/
+
+function getCategoriesCount($conn) {
+    $sql = "SELECT COUNT(*) AS count FROM categories";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if($result->num_rows <= 0) {
+        return false;
+    }
+    $result = $result->fetch_assoc();
+    return $result['count'];
+}
+
 ?>

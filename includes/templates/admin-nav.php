@@ -7,16 +7,16 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent2">
         <ul class="navbar-nav mb-2 mb-lg-0 list-unstyled ">
             <li class="nav-item">
-                <a class="nav-link" href="/admin/users.php">Users</a>
+                <a class="nav-link" href="/admin/users.php"><i class="fa-duotone fa-users"></i></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/admin/products.php">Products</a>
+                <a class="nav-link" href="/admin/products.php"><i class="fa-duotone fa-boxes-stacked"></i></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/admin/categories.php">Categories</a>
+                <a class="nav-link" href="/admin/categories.php"><i class="fa-duotone fa-grid-2"></i></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/admin/orders.php">Orders</a>
+                <a class="nav-link" href="/admin/orders.php"><i class="fa-duotone fa-cart-shopping"></i></a>
             </li>
         </ul>
         </div>
