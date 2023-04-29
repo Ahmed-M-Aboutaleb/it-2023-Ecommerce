@@ -1,6 +1,6 @@
 <?php
 
-include_once($_SERVER["DOCUMENT_ROOT"] .'/includes/functions/validateInput.php');
+include_once $_SERVER["DOCUMENT_ROOT"] .'/includes/functions/validateInput.php';
 
 /*
 
@@ -72,7 +72,7 @@ function signup($conn, $name, $email, $password) {
     }
     $sql = "INSERT INTO users (name, email, password) VALUES ('" . $name . "', '" . $email . "', '" . $hashedPassword ."')";
     if(!$conn->query($sql)) {
-        return 1;
+        return 2;
     }
     $_SESSION["id"] = $conn->insert_id;
     $_SESSION["name"] = $name;

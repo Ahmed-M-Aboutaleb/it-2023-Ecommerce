@@ -14,7 +14,7 @@
                         </div>
                         <div class="col-lg-6 mb-0 d-flex align-items-center">
                             <div class="text-align-left align-self-center">
-                                <h1 class="h1 text-success">Shop</h1>
+                                <h1 class="h1" style="color:rgb(76 112 255);">Shop</h1>
                                 <h3 class="h2">Tiny eCommerce Website</h3>
                                 <p>
                                     This is our project for it course for 2023 year, We hope you like it :)
@@ -84,17 +84,17 @@
             <div class="col-12 col-md-4 p-5 mt-3">
                 <a href="#"><img src="/public/images/category_img_01.jpg" class="rounded-circle img-fluid border"></a>
                 <h5 class="text-center mt-3 mb-3">Mobiles</h5>
-                <p class="text-center"><a class="btn btn-success" href="/products.php">Go Shop</a></p>
+                <p class="text-center"><a class="btn btn-main" href="/products.php">Go Shop</a></p>
             </div>
             <div class="col-12 col-md-4 p-5 mt-3">
                 <a href="#"><img src="/public/images/category_img_02.jpg" class="rounded-circle img-fluid border"></a>
                 <h2 class="h5 text-center mt-3 mb-3">Books</h2>
-                <p class="text-center"><a class="btn btn-success" href="/products.php">Go Shop</a></p>
+                <p class="text-center"><a class="btn btn-main" href="/products.php">Go Shop</a></p>
             </div>
             <div class="col-12 col-md-4 p-5 mt-3">
                 <a href="#"><img src="/public/images/category_img_03.jpg" class="rounded-circle img-fluid border"></a>
                 <h2 class="h5 text-center mt-3 mb-3">Fashion</h2>
-                <p class="text-center"><a class="btn btn-success" href="/products.php">Go Shop</a></p>
+                <p class="text-center"><a class="btn btn-main" href="/products.php">Go Shop</a></p>
             </div>
         </div>
     </section>
@@ -178,13 +178,13 @@
     </section>
     <!-- End Featured Product -->
 
-    <footer data-bs-theme="dark" class="bg-dark d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
+<footer data-bs-theme="dark" class="bg-dark d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
     <p class="col-lg-6 mb-0 text-body-secondary">© 2023 Company, Inc</p>
 
     <ul class="nav col-lg-6 justify-content-end">
         <li class="nav-item"><a href="/" class="nav-link px-2 text-body-secondary">Home</a></li>
-        <li class="nav-item"><a href="/products.php" class="nav-link px-2 text-body-secondary">Products</a></li>
+        <li class="nav-item"><a href="/feedback.php" class="nav-link px-2 text-body-secondary">Feedback</a></li>
         <li class="nav-item"><a href="/#cat" class="nav-link px-2 text-body-secondary">Categories of The Month</a></li>
         <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
     </ul>
-  </footer>
+</footer>

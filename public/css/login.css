@@ -1,5 +1,5 @@
 .login {
-    height: calc(90vh - 5rem);
+    min-height: calc(90vh - 5rem);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -25,6 +25,11 @@
 
 .login form input[type="email"],.login form input[type="password"],.login form input[type="text"] {
     padding: 0.7rem 0.7rem 0.7rem 2rem;
+}
+
+.login form textarea {
+    padding: 0.7rem 0.7rem 0.7rem 3rem;
+    resize: none;
 }
 
 .login .highlight {

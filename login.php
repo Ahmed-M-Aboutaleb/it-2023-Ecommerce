@@ -1,16 +1,46 @@
 <?php
 
+/*
+
+Variables:
+    $pageTitle (string) - title of the page
+    $cssFile (string) - name of the css file
+    $error (string) - error message
+
+*/
+
 $pageTitle = "Shop - Login";
 $cssFile = "login.css";
+$error = "";
 
-include $_SERVER["DOCUMENT_ROOT"] .'/init.php';
-include $_SERVER["DOCUMENT_ROOT"] .'/includes/services/auth/index.php';
+/*
+
+Includes:
+    /init.php - database connection, site url, site name, site description
+    /includes/services/auth/index.php - login function
+    /includes/views/login.php - login form
+    /includes/templates/footer.php - footer, html end tag
+
+*/
+
+include_once $_SERVER["DOCUMENT_ROOT"] .'/init.php';
+include_once $_SERVER["DOCUMENT_ROOT"] .'/includes/services/auth/index.php';
+
+/*
+
+Code:
+    if user is logged in redirect to profile.php
+    if login form is submitted call login function from /includes/services/auth/index.php
+    if login function returns 0 set error message to "Invalid input!"
+    if login function returns 1 set error message to "There is no user with that email!"
+    if login function returns 2 set error message to "Wrong password!"
+    if login function returns anything else set error message to "Server Error!"
+
+*/
 
 if(isset($_SESSION["id"])) {
     header("Location: profile.php");
 }
-
-$error = "";
 
 if(isset($_POST["login"])) {
     $result = login($conn, $_POST["email"], $_POST["password"]);
@@ -25,8 +55,7 @@ if(isset($_POST["login"])) {
     }
 }
 
+include_once $_SERVER["DOCUMENT_ROOT"] .'/includes/views/login.php';
+include_once $_SERVER["DOCUMENT_ROOT"] .'/includes/templates/footer.php';
+
 ?>
-
-<?php include $_SERVER["DOCUMENT_ROOT"] .'/includes/views/login.php'; ?>
-
-<?php include $_SERVER["DOCUMENT_ROOT"] .'/includes/templates/footer.php'; ?>

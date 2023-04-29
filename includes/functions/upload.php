@@ -1,5 +1,15 @@
 <?php 
 
+/*
+
+Name: upload function
+
+Description: This function will upload an image to the server and return the image name if the upload is successful.
+
+Version: 1.0
+
+*/
+
 function upload() {
     $imagesDir = $_SERVER["DOCUMENT_ROOT"] .'/public/images/products/';
     $imageFile = $imagesDir . htmlspecialchars(basename($_FILES["image"]["name"]));

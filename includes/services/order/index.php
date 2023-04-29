@@ -1,6 +1,6 @@
 <?php
 
-include_once($_SERVER["DOCUMENT_ROOT"] .'/includes/functions/validateInput.php');
+include_once $_SERVER["DOCUMENT_ROOT"] .'/includes/functions/validateInput.php';
 
 /*
 
@@ -32,6 +32,7 @@ Version: 1.0
 function findOneOrder($conn, $id) {
     if(!validateInput($id)) {
         header("Location: orders.php");
+        return false;
     }
     $id = validateInput($id);
     $sql = "SELECT * FROM orders WHERE id = $id LIMIT 1";

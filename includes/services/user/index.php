@@ -1,5 +1,5 @@
 <?php
-include_once($_SERVER["DOCUMENT_ROOT"] .'/includes/functions/validateInput.php');
+include_once $_SERVER["DOCUMENT_ROOT"] .'/includes/functions/validateInput.php';
 
 /*
 
@@ -31,6 +31,7 @@ version: 1.0
 function findOneUser($conn, $id) {
     if(!validateInput($id)) {
         header("Location: products.php");
+        return false;
     }
     $id = validateInput($id);
     $sql = "SELECT * FROM users WHERE id = {$id} LIMIT 1";
@@ -39,6 +40,7 @@ function findOneUser($conn, $id) {
     $result = $stmt->get_result();
     if($result->num_rows <= 0) {
         header("Location: products.php");
+        return false;
     } 
     $result = $result->fetch_assoc();
     return $result;
@@ -123,44 +125,43 @@ function updateUser($conn, $id, $name, $email, $password, $admin, $date) {
     $name = validateInput($name);
     $email = validateInput($email);
     $password = validateInput($password);
-    if(validateInput($name) && validateInput($email)){
-        if(!$password) {
-            if($admin == "") {
-                $sql = "UPDATE users SET name = '$name', email = '$email' WHERE id = $id";
-            } else {
-                $sql = "UPDATE users SET name = '$name', email = '$email', isAdmin = '$admin', date='$date' WHERE id = $id";
-            }
-            $result = $conn->query($sql);
+    if(!validateInput($id) || !validateInput($name) || !validateInput($email) ) {
+        return false;
+    }
+    if(!$password) {
 
-            if(!$result) {
-                return 0;
-            } 
-
-            $_SESSION["name"] = $name;
-            $_SESSION["email"] = $email;
-            return 1;
-        }
-        if(!validateInput($password)) {
-            return 0;
-        }
-        $password = sha1($password);
-        
-        if(!$admin) {
-            $sql = "UPDATE users SET name = '$name', email = '$email', password = '$password' WHERE id = $id";
+        if($admin == "") {
+            $sql = "UPDATE users SET name = '$name', email = '$email' WHERE id = $id";
         } else {
-            $sql = "UPDATE users SET name = '$name', email = '$email', password = '$password', isAdmin = '$admin', date='$date' WHERE id = $id";
+            $sql = "UPDATE users SET name = '$name', email = '$email', isAdmin = '$admin', date='$date' WHERE id = $id";
         }
-        $result = $conn->query($sql);
 
+        $result = $conn->query($sql);
         if(!$result) {
             return 0;
-        }
-        if($id == $_SESSION["id"]) {
-            $_SESSION["name"] = $name;
-            $_SESSION["email"] = $email;
-        }
+        } 
+        $_SESSION["name"] = $name;
+        $_SESSION["email"] = $email;
         return 1;
     }
+    if(!validateInput($password)) {
+        return 0;
+    }
+    $password = sha1($password);
+    if(!$admin) {
+        $sql = "UPDATE users SET name = '$name', email = '$email', password = '$password' WHERE id = $id";
+    } else {
+        $sql = "UPDATE users SET name = '$name', email = '$email', password = '$password', isAdmin = '$admin', date='$date' WHERE id = $id";
+    }
+    $result = $conn->query($sql);
+    if(!$result) {
+        return 0;
+    }
+    if($id == $_SESSION["id"]) {
+        $_SESSION["name"] = $name;
+        $_SESSION["email"] = $email;
+    }
+    return 1;
 }
 
 /*

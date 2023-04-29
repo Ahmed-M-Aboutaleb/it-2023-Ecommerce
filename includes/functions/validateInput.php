@@ -11,15 +11,14 @@ virsion: 1.0
 */
 
 function validateInput($value) {
-    if($value != '') {
-        $value = trim($value);
-        $value = stripslashes($value);
-        $value = htmlspecialchars($value);
-        filter_var($value, FILTER_SANITIZE_STRING);
-        return $value;
-    } else {
+    if($value == '' || $value == null || $value == ' ' || !isset($value)) {
         return false;
     }
+    $value = trim($value);
+    $value = stripslashes($value);
+    $value = htmlspecialchars($value);
+    filter_var($value, FILTER_SANITIZE_STRING);
+    return $value;
 }
 
 ?>

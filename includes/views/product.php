@@ -11,7 +11,7 @@
             <p class="text-center text-body-secondary subTitle">Seller: <?php echo $product["seller"]; ?></p>
             <p class="text-center text-body-secondary subTitle">Rating: <?php echo $product["rating"]; ?> out of 5</p>
             <div class="text-center">
-                <a href="cart.php?id=<?php echo $product["id"]; ?>" class="btn btn-primary">Buy!</a>
+                <a href="cart.php?id=<?php echo $product["id"]; ?>" class="btn btn-main">Buy!</a>
             </div>
         </div>
     </div>

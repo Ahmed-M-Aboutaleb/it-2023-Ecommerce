@@ -1,6 +1,6 @@
 <?php
 
-include_once($_SERVER['DOCUMENT_ROOT'] .'/includes/functions/validateInput.php'); // include validation file
+include_once $_SERVER['DOCUMENT_ROOT'] .'/includes/functions/validateInput.php'; // include validation file
 
 /*
 
@@ -32,6 +32,7 @@ version: 1.0
 function findOneProduct($conn, $id) {
     if(!validateInput($id)) {
         header("Location: products.php");
+        return false;
     }
     $id = validateInput($id);
     $sql = "SELECT * FROM products WHERE id = " . $id . " LIMIT 1";
@@ -40,6 +41,7 @@ function findOneProduct($conn, $id) {
     $result = $stmt->get_result();
     if($result->num_rows <= 0) {
         header("Location: products.php");
+        return false;
     } 
     $result = $result->fetch_assoc();
     return $result;
@@ -74,6 +76,7 @@ version: 1.0
 function findProductsByCategory($conn, $category) {
     if(!validateInput($category)) {
         header("Location: products.php");
+        return false;
     }
     $category = validateInput($category);
     $sql = "SELECT * FROM products WHERE category = '{$category}'";
@@ -184,9 +187,7 @@ function search($conn, $product) {
     }
     $filteredProduct = validateInput($product);
     $sql = "SELECT * FROM products WHERE name LIKE '%". $filteredProduct ."%'";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    $result = $conn->query($sql);
     if($result->num_rows <= 0) {
         return false;
     }

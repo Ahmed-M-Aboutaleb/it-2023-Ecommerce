@@ -1,10 +1,42 @@
 <?php 
+
+/*
+
+Variables:
+    $pageTitle (string) - title of the page
+    $error (string) - error message
+
+*/
+
 $pageTitle = "User Dashboard";
-
-include $_SERVER["DOCUMENT_ROOT"] .'/init.php';
-include $_SERVER["DOCUMENT_ROOT"] .'/includes/services/user/index.php';
-
 $error = "";
+
+/*
+
+Includes:
+    /init.php - database connection, site url, site name, site description
+    /includes/services/user/index.php - findUsers function
+    /includes/views/admin/userAdd.php - user add form
+    /includes/views/admin/userView.php - user view form
+    /includes/templates/footer.php - footer, html end tag
+
+*/
+
+include_once $_SERVER["DOCUMENT_ROOT"] .'/init.php';
+include_once $_SERVER["DOCUMENT_ROOT"] .'/includes/services/user/index.php';
+
+/*
+
+Code:
+    if user is not logged in redirect to login.php
+    if update form is submitted call updateUser function from /includes/services/user/index.php
+    if add form is submitted call insertUser function from /includes/services/user/index.php
+    if delete button is clicked call deleteUser function from /includes/services/user/index.php
+    if updateUser or insertUser or deleteUser function returns false set error message to "Error Updating" or "Error Adding" or "Error Deleting"
+    if updateUser or insertUser or deleteUser function returns true set error message to "Updated Successfully" or "Added Successfully" or "Deleted Successfully"
+    if id is set get user by id from database and set it to user variable
+
+*/
 
 if(isset($_POST['update'])) {
     $name = $_POST['name'];
@@ -45,10 +77,10 @@ if(isset($_GET['delete'])) {
 if(isset($_GET['id'])) {
     $id = $_GET['id'];
     $user = findOneUser($conn, $id);
-    include $_SERVER["DOCUMENT_ROOT"] .'/includes/views/admin/userView.php';
+    include_once $_SERVER["DOCUMENT_ROOT"] .'/includes/views/admin/userView.php';
 } else {
-    include $_SERVER["DOCUMENT_ROOT"] .'/includes/views/admin/userAdd.php';
+    include_once $_SERVER["DOCUMENT_ROOT"] .'/includes/views/admin/userAdd.php';
 }
 ?>
 
-<?php include $_SERVER["DOCUMENT_ROOT"]. '/includes/templates/footer.php' ?>
+<?php include_once $_SERVER["DOCUMENT_ROOT"]. '/includes/templates/footer.php' ?>

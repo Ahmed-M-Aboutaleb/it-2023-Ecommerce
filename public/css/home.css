@@ -1,18 +1,3 @@
-.profile {
-    height: calc(100vh - 56px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.profile .card {
-    width: clamp(250px, 50%, 500px);
-}
-
-.profile .btns {
-    align-items: center;
-}
-
 .btn-main {
     --bs-btn-color: #fff !important;
     --bs-btn-bg: rgb(76 112 255) !important;

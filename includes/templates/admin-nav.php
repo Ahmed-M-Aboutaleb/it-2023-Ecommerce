@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-sm bg-dark" data-bs-theme="dark"> 
     <div class="container-fluid">
-        <a class="navbar-brand text-success" href="/admin">AdminPanel</a>
+        <a class="navbar-brand" style="color: rgb(76 112 255);" href="/admin">AdminPanel</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -17,6 +17,9 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/admin/orders.php"><i class="fa-duotone fa-cart-shopping"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/feedbacks.php"><i class="fa-duotone fa-envelope"></i></a>
             </li>
         </ul>
         </div>

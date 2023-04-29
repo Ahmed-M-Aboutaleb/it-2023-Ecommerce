@@ -1,13 +1,48 @@
 <?php 
+
+/*
+
+Variables:
+    $pageTitle (string) - page title
+    $error (string) - error message
+    $seller (array) - seller array
+    $categories (array) - categories array
+
+*/
+
 $pageTitle = "Users Dashboard";
-
-include $_SERVER["DOCUMENT_ROOT"] .'/init.php';
-include $_SERVER["DOCUMENT_ROOT"] .'/includes/services/product/index.php';
-include $_SERVER["DOCUMENT_ROOT"] .'/includes/services/user/index.php';
-include $_SERVER["DOCUMENT_ROOT"] .'/includes/services/category/index.php';
-include $_SERVER["DOCUMENT_ROOT"] .'/includes/functions/upload.php';
-
 $error = "";
+
+/*
+
+Includes:
+    /init.php - database connection, site url, site name, site description
+    /includes/services/user/index.php - findAdmins function
+    /includes/services/category/index.php - findCategories function
+    /includes/functions/upload.php - upload function
+    /includes/views/admin/productView.php - admin product view
+    /includes/views/admin/productAdd.php - admin product add
+    /includes/templates/footer.php - footer, html end tag
+
+*/
+
+include_once $_SERVER["DOCUMENT_ROOT"] .'/init.php';
+include_once $_SERVER["DOCUMENT_ROOT"] .'/includes/services/product/index.php';
+include_once $_SERVER["DOCUMENT_ROOT"] .'/includes/services/user/index.php';
+include_once $_SERVER["DOCUMENT_ROOT"] .'/includes/services/category/index.php';
+include_once $_SERVER["DOCUMENT_ROOT"] .'/includes/functions/upload.php';
+
+/*
+
+Code
+    if id is set and is numeric call findOneProduct function from /includes/services/product/index.php
+    call findAdmins function from /includes/services/user/index.php
+    call findCategories function from /includes/services/category/index.php
+    if update form is submitted call updateProduct function from /includes/services/product/index.php
+    if add form is submitted call addProduct function from /includes/services/product/index.php
+
+*/
+
 $sellers = findAdmins($conn);
 $categories = findCategories($conn);
 
@@ -55,10 +90,10 @@ if(isset($_GET['delete'])) {
 if(isset($_GET['id'])) {
     $id = $_GET['id'];
     $product = findOneProduct($conn, $id);
-    include $_SERVER["DOCUMENT_ROOT"] .'/includes/views/admin/productView.php';
+    include_once $_SERVER["DOCUMENT_ROOT"] .'/includes/views/admin/productView.php';
 } else {
-    include $_SERVER["DOCUMENT_ROOT"] .'/includes/views/admin/productAdd.php';
+    include_once $_SERVER["DOCUMENT_ROOT"] .'/includes/views/admin/productAdd.php';
 }
 ?>
 
-<?php include $_SERVER["DOCUMENT_ROOT"]. '/includes/templates/footer.php' ?>
+<?php include_once $_SERVER["DOCUMENT_ROOT"]. '/includes/templates/footer.php' ?>

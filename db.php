@@ -1,8 +1,20 @@
 <?php
+
+/*
+
+Variables:
+    $serverName (string) - server name
+    $username (string) - username
+    $password (string) - password
+    $databaseName (string) - database name
+    $conn (object) - connection object
+
+*/
+
 $serverName = "localhost";
 $username = "root";
 $password = "";
-$databaseName = "test2";
+$databaseName = "shopDB";
 
 // Create connection
 $conn = new mysqli($serverName, $username, $password, $databaseName);

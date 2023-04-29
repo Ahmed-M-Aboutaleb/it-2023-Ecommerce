@@ -30,7 +30,7 @@
                 <div class="row btns">
                     <div class="col-sm-7"><a href="logout.php" class="btn btn-danger">Logout</a></div>
                         <div class="col-sm-5 text-secondary">
-                            <input type="submit" name="update" class="btn btn-primary px-4" value="Save Changes">
+                            <input type="submit" name="update" class="btn btn-main px-4" value="Save Changes">
                         </div>
                     </div>
                 </form>
