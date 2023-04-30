@@ -28,8 +28,8 @@
                 </div>
                 <?php if($error) { echo "<p class='text-center'>".$error."</p>"; } ?>
                 <div class="row btns">
-                    <div class="col-sm-7"><a href="logout.php" class="btn btn-danger">Logout</a></div>
-                        <div class="col-sm-5 text-secondary">
+                    <div class="col-lg-7"><a href="logout.php" class="btn btn-danger">Logout</a></div>
+                        <div class="col-lg-5 text-secondary">
                             <input type="submit" name="update" class="btn btn-main px-4" value="Save Changes">
                         </div>
                     </div>

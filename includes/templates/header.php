@@ -17,26 +17,9 @@ include_once $_SERVER["DOCUMENT_ROOT"] .'/includes/functions/getCSSFile.php';
     <link href="/public/css/bootstrap.min.css" rel="stylesheet" >
     <link href="/public/css/docs.css" rel="stylesheet">
     <link href="/public/css/icons.min.css" rel="stylesheet">
+    <link href="/public/css/main.css" rel="stylesheet">
     <script src="/public/js/jquery-3.6.4.min.js"></script>
     <script src="/public/js/bootstrap.bundle.min.js"></script>
-    <style>
-        .btn-outline-main {
-            --bs-btn-color: rgb(76 112 255) !important;
-            --bs-btn-border-color: rgb(76 112 255) !important;
-            --bs-btn-hover-color: #fff !important;
-            --bs-btn-hover-bg: rgb(76 112 255) !important;
-            --bs-btn-hover-border-color: rgb(76 112 255) !important;
-            --bs-btn-focus-shadow-rgb: 25,135,84 !important;
-            --bs-btn-active-color: #fff !important;
-            --bs-btn-active-bg: rgb(51, 88, 238) !important;
-            --bs-btn-active-border-color: rgb(40, 84, 255) !important;
-            --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125) !important;
-            --bs-btn-disabled-color: rgb(44, 77, 208) !important;
-            --bs-btn-disabled-bg: transparent;
-            --bs-btn-disabled-border-color: rgb(44, 77, 208) !important;
-            --bs-gradient: none;
-        }
-    </style>
 </head>
 <body>
 <?php 

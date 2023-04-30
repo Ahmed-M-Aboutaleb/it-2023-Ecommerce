@@ -12,8 +12,10 @@ Variables:
 
 $pageTitle = "Shop - Products page";
 $cssFile = "products.css";
-$searchProduct = $_GET["search"];
-$categoryFilter = $_GET["category"];
+if(isset($_GET["search"]))
+    $searchProduct = $_GET["search"];
+if(isset($_GET["category"]))
+    $categoryFilter = $_GET["category"];
 
 /*
 
