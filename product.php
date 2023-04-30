@@ -5,6 +5,7 @@
 Variables:
     $pageTitle (string) - title of the page
     $cssFile (string) - name of the css file
+    $id (int) - id of the product
 
 */
 
@@ -35,10 +36,12 @@ Code:
 
 */
 
-if(!isset($_GET["id"]) || !is_numeric($_GET["id"])) {
+$id = $_GET["id"];
+
+if(!isset($id) || !is_numeric($id)) {
     header("Location: products.php");
 }
-$product = findOneProduct($conn, $_GET["id"]);
+$product = findOneProduct($conn, $id);
 $category = findOneCategory($conn, $product["category"]);
 
 include_once $_SERVER["DOCUMENT_ROOT"] ."/includes/views/product.php";

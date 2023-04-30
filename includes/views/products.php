@@ -1,8 +1,8 @@
 <main class="container products">
     <h1 class="display-2 text-center">Products</h1>
     <?php 
-        if(isset($_GET["search"])) { 
-            echo "<h4 class='display-6 text-center'>Results for: {$_GET["search"]}</h4>"; 
+        if(isset($searchProduct)) { 
+            echo "<h4 class='display-6 text-center'>Results for: {$searchProduct}</h4>"; 
     } ?>
     <div class="row">
         <div class="col-lg-3">

@@ -9,7 +9,7 @@
                     <input class="form-control" type="email" name="email" value="<?php echo $user['email'] ?>" placeholder="Email" required>
                 </div>
                 <div class="mb-3">
-                    <input class="form-control" type="text" name="password" placeholder="Password" required autocomplete="off">
+                    <input class="form-control" type="text" name="password" placeholder="Password" autocomplete="off">
                 </div>
                 <div class="mb-3">
                     <input class="form-control" type="text" name="date" value="<?php echo $user['date'] ?>" placeholder="date (year-month-day)">

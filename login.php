@@ -12,6 +12,9 @@ Variables:
 $pageTitle = "Shop - Login";
 $cssFile = "login.css";
 $error = "";
+define("INVALID_INPUT", 0);
+define("FAKE_USER", 1);
+define("WRONG_PASSWORD", 2);
 
 /*
 
@@ -44,11 +47,11 @@ if(isset($_SESSION["id"])) {
 
 if(isset($_POST["login"])) {
     $result = login($conn, $_POST["email"], $_POST["password"]);
-    if($result == 0) {
+    if($result == INVALID_INPUT) {
         $error = "Invalid input!";
-    } else if ($result == 1) {
+    } else if ($result == FAKE_USER) {
         $error = "☹️ There is no user with that email";
-    } else if ($result == 2) {
+    } else if ($result == WRONG_PASSWORD) {
         $error = "☹️ Wrong password";
     } else {
         $error = "Server Error!";

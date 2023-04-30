@@ -12,6 +12,8 @@ Variables:
 $pageTitle = "Shop - Signup";
 $cssFile = "login.css";
 $error = "";
+define("INVALID_INPUT", 0);
+define("EMAIL_EXISTS", 1);
 
 /*
 
@@ -43,9 +45,9 @@ if(isset($_SESSION["id"])) {
 
 if(isset($_POST["signup"])) {
     $result = signup($conn, $_POST["name"], $_POST["email"], $_POST["password"]);
-    if($result == 0) {
+    if($result == INVALID_INPUT) {
         $error = "Invalid input!";
-    } else if($result == 1){
+    } else if($result == EMAIL_EXISTS){
         $error = "There is user with that email!";
     } else {
         $error = "Server Error!";

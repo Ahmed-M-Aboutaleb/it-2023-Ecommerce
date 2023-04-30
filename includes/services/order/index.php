@@ -77,7 +77,7 @@ function insertOrder($conn, $user, $totalPrice, $product, $status, $date) {
     $user = validateInput($user);
     $totalPrice = validateInput($totalPrice);
     $product = validateInput($product);
-    $status = validateInput($status);
+    validateInput($status) ? $status = validateInput($status) : $status = 0;
     $date = validateInput($date);
     $sql = "INSERT INTO orders (user, totalPrice, productId, status, date) VALUES ('$user', '$totalPrice', '$product', '$status', '$date')";
     if(!$conn->query($sql)) {
@@ -102,7 +102,7 @@ function updateOrder($conn, $id, $user, $totalPrice, $product, $status, $date) {
     $user = validateInput($user);
     $totalPrice = validateInput($totalPrice);
     $product = validateInput($product);
-    $status = validateInput($status);
+    validateInput($status) ? $status = validateInput($status) : $status = 0;
     $date = validateInput($date);
     $sql = "UPDATE orders SET user = '$user', totalPrice = '$totalPrice', productId = '$product', status = '$status', date = '$date' WHERE id = $id";
     if(!$conn->query($sql)) {

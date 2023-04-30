@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 29, 2023 at 08:42 PM
+-- Generation Time: Apr 30, 2023 at 07:24 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -151,7 +151,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `isAdmin`, `date`) VALUES
-(1, 'admin', 'iifire005@gmail.com', '114ba4fb31c1cb028f58ae30a210e66cb7e787fc', 1, '2023-04-14');
+(1, 'admin', 'iifire005@gmail.com', '114ba4fb31c1cb028f58ae30a210e66cb7e787fc', 1, '2023-04-30');
 
 --
 -- Indexes for dumped tables
@@ -212,7 +212,7 @@ ALTER TABLE `feedbacks`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -224,7 +224,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Constraints for dumped tables

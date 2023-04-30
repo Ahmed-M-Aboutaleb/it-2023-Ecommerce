@@ -89,14 +89,14 @@ version: 2.1
 
 */
 
-function insertUser($conn, $name, $email, $password, $isAdmin,$date) {
+function insertUser($conn, $name, $email, $password, $isAdmin = 0,$date) {
     if(!validateInput($name) || !validateInput($email) || !validateInput($password) || !validateInput($date)) {
         return 0;
     }
     $name = validateInput($name);
     $email = validateInput($email);
     $password = validateInput($password);
-    $isAdmin = validateInput($isAdmin);
+    validateInput($isAdmin) ? $isAdmin = validateInput($isAdmin) : $isAdmin = 0;
     $date = validateInput($date);
     $password = sha1($password);
     $sql = "SELECT * FROM users WHERE email = '$email'";
@@ -125,17 +125,12 @@ function updateUser($conn, $id, $name, $email, $password, $admin, $date) {
     $name = validateInput($name);
     $email = validateInput($email);
     $password = validateInput($password);
+    validateInput($admin) ? $admin = validateInput($admin) : $admin = 0;
     if(!validateInput($id) || !validateInput($name) || !validateInput($email) ) {
         return false;
     }
     if(!$password) {
-
-        if($admin == "") {
-            $sql = "UPDATE users SET name = '$name', email = '$email' WHERE id = $id";
-        } else {
-            $sql = "UPDATE users SET name = '$name', email = '$email', isAdmin = '$admin', date='$date' WHERE id = $id";
-        }
-
+        $sql = "UPDATE users SET name = '$name', email = '$email', isAdmin = '$admin', date='$date' WHERE id = $id";
         $result = $conn->query($sql);
         if(!$result) {
             return 0;
@@ -148,11 +143,7 @@ function updateUser($conn, $id, $name, $email, $password, $admin, $date) {
         return 0;
     }
     $password = sha1($password);
-    if(!$admin) {
-        $sql = "UPDATE users SET name = '$name', email = '$email', password = '$password' WHERE id = $id";
-    } else {
-        $sql = "UPDATE users SET name = '$name', email = '$email', password = '$password', isAdmin = '$admin', date='$date' WHERE id = $id";
-    }
+    $sql = "UPDATE users SET name = '$name', email = '$email', password = '$password', isAdmin = '$admin', date='$date' WHERE id = $id";
     $result = $conn->query($sql);
     if(!$result) {
         return 0;

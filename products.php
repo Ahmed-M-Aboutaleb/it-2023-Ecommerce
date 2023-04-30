@@ -5,11 +5,15 @@
 Variables:
     $pageTitle (string) - title of the page
     $cssFile (string) - name of the css file
+    $searchProduct (string) - search input value
+    $categoryFilter (string) - category input value
 
 */
 
 $pageTitle = "Shop - Products page";
 $cssFile = "products.css";
+$searchProduct = $_GET["search"];
+$categoryFilter = $_GET["category"];
 
 /*
 
@@ -38,12 +42,10 @@ Code:
 
 $categories = findCategories($conn);
 
-if(isset($_GET["search"])) {
-    $search = $_GET["search"];
-    $products = search($conn, $search);
-} else if(isset($_GET["category"])) {
-    $categoryId = $_GET["category"];
-    $products = findProductsByCategory($conn, $categoryId);
+if(isset($searchProduct)) {
+    $products = search($conn, $searchProduct);
+} else if(isset($categoryFilter)) {
+    $products = findProductsByCategory($conn, $categoryFilter);
 } else {
     $products = findProducts($conn);
 }

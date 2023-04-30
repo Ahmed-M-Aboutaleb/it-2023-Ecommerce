@@ -1,5 +1,7 @@
 <?php 
 
+define("ADMIN_AUTH", 1); // define admin authorization level
+
 /*
 
 Includes:
@@ -22,6 +24,6 @@ Code:
 
 $uri = $_SERVER['REQUEST_URI']; // get current uri
 if(str_contains($uri, '/admin')) {
-    authorize(1);
+    authorize(ADMIN_AUTH);
 }
 ?>
