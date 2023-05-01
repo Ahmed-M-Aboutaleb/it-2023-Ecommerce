@@ -18,10 +18,15 @@ include_once $_SERVER["DOCUMENT_ROOT"] .'/includes/functions/getCSSFile.php';
     <link href="/public/css/docs.css" rel="stylesheet">
     <link href="/public/css/icons.min.css" rel="stylesheet">
     <link href="/public/css/main.css" rel="stylesheet">
+    <link href="/public/css/aos.css" rel="stylesheet">
+    <script src="/public/js/aos.js"></script>
     <script src="/public/js/jquery-3.6.4.min.js"></script>
     <script src="/public/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+<script>
+    AOS.init();
+</script>
 <?php 
     if(isset($_SESSION["admin"]) && $_SESSION["admin"] == 1) {
         include_once $_SERVER["DOCUMENT_ROOT"] .'/includes/templates/admin-nav.php';

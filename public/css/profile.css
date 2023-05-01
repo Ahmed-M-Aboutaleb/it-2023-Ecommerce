@@ -1,12 +1,13 @@
 .profile {
-    height: calc(100vh - 56px);
+    min-height: calc(100vh - 56px);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .profile .card {
-    width: clamp(250px, 50%, 500px);
+    margin: 0 auto;
+    width: clamp(250px, 90%, 500px);
 }
 
 .profile .btns {

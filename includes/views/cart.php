@@ -28,7 +28,7 @@
                                                         onclick="dec(<?php echo $product['id']; ?>)">
                                                         <i class="fas fa-minus"></i>
                                                     </button>
-                                                    <input id="<?php echo $product['id']?>" min="0" name="quantity" value="<?= $product['quantity'] ?>" type="number"
+                                                    <input id="<?php echo $product['id']?>" style="min-width: 2.5rem;" min="0" name="quantity" value="<?= $product['quantity'] ?>" type="number"
                                                         class="form-control form-control-sm disabled" disabled />
                                                     <button class="btn btn-link px-2"
                                                         onclick="inc(<?php echo $product['id']; ?>)">

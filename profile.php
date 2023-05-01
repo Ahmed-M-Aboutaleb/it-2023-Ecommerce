@@ -18,6 +18,8 @@ $error = "";
 Includes:
     /init.php - database connection, site url, site name, site description
     /includes/services/user/index.php - updateUser function
+    /includes/services/order/index.php - getUserOrders function
+    /includes/services/product/index.php - findOneProduct function
     /includes/views/profile.php - profile form
     /includes/templates/footer.php - footer, html end tag
 
@@ -25,6 +27,8 @@ Includes:
 
 include_once $_SERVER["DOCUMENT_ROOT"] .'/init.php';
 include_once $_SERVER["DOCUMENT_ROOT"] .'/includes/services/user/index.php';
+include_once $_SERVER["DOCUMENT_ROOT"] .'/includes/services/order/index.php';
+include_once $_SERVER["DOCUMENT_ROOT"] .'/includes/services/product/index.php';
 
 /*
 
@@ -44,6 +48,8 @@ if(isset($_POST["update"])) {
     }
     $error = "Profile updated successfully";
 }
+
+$orders = getUserOrders($conn, $_SESSION["id"]);
 
 include_once $_SERVER["DOCUMENT_ROOT"] .'/includes/views/profile.php';
 include_once $_SERVER["DOCUMENT_ROOT"] .'/includes/templates/footer.php';

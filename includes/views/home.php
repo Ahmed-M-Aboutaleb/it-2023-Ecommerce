@@ -82,19 +82,25 @@
         </div>
         <div class="row">
             <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="/public/images/category_img_01.jpg" class="rounded-circle img-fluid border"></a>
-                <h5 class="text-center mt-3 mb-3">Mobiles</h5>
-                <p class="text-center"><a class="btn btn-main" href="/products.php">Go Shop</a></p>
+                <div data-aos="fade-right" data-aos-duration="2000">
+                    <a href="#"><img src="/public/images/category_img_01.jpg" class="rounded-circle img-fluid border"></a>
+                    <h5 class="text-center mt-3 mb-3">Mobiles</h5>
+                    <p class="text-center"><a class="btn btn-main" href="/products.php">Go Shop</a></p>
+                </div>
             </div>
             <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="/public/images/category_img_02.jpg" class="rounded-circle img-fluid border"></a>
-                <h2 class="h5 text-center mt-3 mb-3">Books</h2>
-                <p class="text-center"><a class="btn btn-main" href="/products.php">Go Shop</a></p>
+                <div data-aos="fade-up" data-aos-duration="2000">
+                    <a href="#"><img src="/public/images/category_img_02.jpg" class="rounded-circle img-fluid border"></a>
+                    <h2 class="h5 text-center mt-3 mb-3">Books</h2>
+                    <p class="text-center"><a class="btn btn-main" href="/products.php">Go Shop</a></p>
+                </div>
             </div>
             <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="/public/images/category_img_03.jpg" class="rounded-circle img-fluid border"></a>
-                <h2 class="h5 text-center mt-3 mb-3">Fashion</h2>
-                <p class="text-center"><a class="btn btn-main" href="/products.php">Go Shop</a></p>
+                <div data-aos="fade-left" data-aos-duration="2000">
+                    <a href="#"><img src="/public/images/category_img_03.jpg" class="rounded-circle img-fluid border"></a>
+                    <h2 class="h5 text-center mt-3 mb-3">Fashion</h2>
+                    <p class="text-center"><a class="btn btn-main" href="/products.php">Go Shop</a></p>
+                </div>
             </div>
         </div>
     </section>
@@ -111,65 +117,71 @@
             </div>
             <div class="row">
                 <div class="col-12 col-md-4 mb-4">
-                    <div class="card h-100">
-                        <a href="/products.php">
-                            <img src="/public/images/feature_prod_01.jpg" class="card-img-top" alt="...">
-                        </a>
-                        <div class="card-body">
-                            <ul class="list-unstyled d-flex justify-content-between">
-                                <li>
-                                    <i class="text-warning fa-solid fa-star"></i>
-                                    <i class="text-warning fa-solid fa-star"></i>
-                                    <i class="text-warning fa-solid fa-star"></i>
-                                    <i class="text-muted fa-solid fa-star"></i>
-                                    <i class="text-muted fa-solid fa-star"></i>
-                                </li>
-                                <li class="text-muted text-right">$12.00</li>
-                            </ul>
-                            <a href="/products.php" class="h2 text-decoration-none text-dark">Flash light</a>
-                            <p class="text-muted">Reviews (24)</p>
+                    <div data-aos="zoom-in-right" data-aos-duration="1000">
+                        <div class="card h-100">
+                            <a href="/products.php">
+                                <img src="/public/images/feature_prod_01.jpg" class="card-img-top" alt="...">
+                            </a>
+                            <div class="card-body">
+                                <ul class="list-unstyled d-flex justify-content-between">
+                                    <li>
+                                        <i class="text-warning fa-solid fa-star"></i>
+                                        <i class="text-warning fa-solid fa-star"></i>
+                                        <i class="text-warning fa-solid fa-star"></i>
+                                        <i class="text-muted fa-solid fa-star"></i>
+                                        <i class="text-muted fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="text-muted text-right">$12.00</li>
+                                </ul>
+                                <a href="/products.php" class="h2 text-decoration-none text-dark">Flash light</a>
+                                <p class="text-muted">Reviews (24)</p>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-4 mb-4">
-                    <div class="card h-100">
-                        <a href="/products.php">
-                            <img src="/public/images/feature_prod_02.jpg" class="card-img-top" alt="...">
-                        </a>
-                        <div class="card-body">
-                            <ul class="list-unstyled d-flex justify-content-between">
-                                <li>
-                                    <i class="text-warning fa-solid fa-star"></i>
-                                    <i class="text-warning fa-solid fa-star"></i>
-                                    <i class="text-warning fa-solid fa-star"></i>
-                                    <i class="text-muted fa-solid fa-star"></i>
-                                    <i class="text-muted fa-solid fa-star"></i>
-                                </li>
-                                <li class="text-muted text-right">$101.00</li>
-                            </ul>
-                            <a href="/products.php" class="h2 text-decoration-none text-dark">Smart Watch</a>
-                            <p class="text-muted">Reviews (48)</p>
+                    <div data-aos="zoom-in" data-aos-duration="1000">
+                        <div class="card h-100">
+                            <a href="/products.php">
+                                <img src="/public/images/feature_prod_02.jpg" class="card-img-top" alt="...">
+                            </a>
+                            <div class="card-body">
+                                <ul class="list-unstyled d-flex justify-content-between">
+                                    <li>
+                                        <i class="text-warning fa-solid fa-star"></i>
+                                        <i class="text-warning fa-solid fa-star"></i>
+                                        <i class="text-warning fa-solid fa-star"></i>
+                                        <i class="text-muted fa-solid fa-star"></i>
+                                        <i class="text-muted fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="text-muted text-right">$101.00</li>
+                                </ul>
+                                <a href="/products.php" class="h2 text-decoration-none text-dark">Smart Watch</a>
+                                <p class="text-muted">Reviews (48)</p>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-4 mb-4">
-                    <div class="card h-100">
-                        <a href="/products.php">
-                            <img src="/public/images/feature_prod_03.jpg" class="card-img-top" alt="...">
-                        </a>
-                        <div class="card-body">
-                            <ul class="list-unstyled d-flex justify-content-between">
-                                <li>
-                                    <i class="text-warning fa-solid fa-star"></i>
-                                    <i class="text-warning fa-solid fa-star"></i>
-                                    <i class="text-warning fa-solid fa-star"></i>
-                                    <i class="text-warning fa-solid fa-star"></i>
-                                    <i class="text-warning fa-solid fa-star"></i>
-                                </li>
-                                <li class="text-muted text-right">$154.00</li>
-                            </ul>
-                            <a href="/products.php" class="h2 text-decoration-none text-dark">Camera</a>
-                            <p class="text-muted">Reviews (74)</p>
+                    <div data-aos="zoom-in-left" data-aos-duration="1000">
+                        <div class="card h-100">
+                            <a href="/products.php">
+                                <img src="/public/images/feature_prod_03.jpg" class="card-img-top" alt="...">
+                            </a>
+                            <div class="card-body">
+                                <ul class="list-unstyled d-flex justify-content-between">
+                                    <li>
+                                        <i class="text-warning fa-solid fa-star"></i>
+                                        <i class="text-warning fa-solid fa-star"></i>
+                                        <i class="text-warning fa-solid fa-star"></i>
+                                        <i class="text-warning fa-solid fa-star"></i>
+                                        <i class="text-warning fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="text-muted text-right">$154.00</li>
+                                </ul>
+                                <a href="/products.php" class="h2 text-decoration-none text-dark">Camera</a>
+                                <p class="text-muted">Reviews (74)</p>
+                            </div>
                         </div>
                     </div>
                 </div>

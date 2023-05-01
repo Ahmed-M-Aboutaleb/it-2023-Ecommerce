@@ -153,4 +153,26 @@ function getOrdersCount($conn) {
     return $result['count'];
 }
 
+/*
+
+Name: getUserOrders()
+Description: This function will get all orders from a user.
+Parameters: $conn - The database connection. $id - The id of the user.
+Version: 1.0
+
+*/
+
+function getUserOrders($conn, $id) {
+    if(!validateInput($id)) {
+        return false;
+    }
+    $id = validateInput($id);
+    $sql = "SELECT * FROM orders WHERE user = $id";
+    $result = $conn->query($sql);
+    if($result->num_rows <= 0) {
+        return false;
+    }
+    return $result;
+}
+
 ?>
