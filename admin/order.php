@@ -64,10 +64,11 @@ if(isset($_POST['update'])) {
     $user = $_POST['user'];
     $product = $_POST['product'];
     $totalPrice = $_POST['totalPrice'];
+    $quantity = $_POST['quantity'];
     $status;
     isset($_POST['date']) && $_POST['date'] != '' ? $date = $_POST['date'] : $date = date("Y-m-d");
     isset($_POST['status']) && $_POST['status'] == "on" ? $status = 1 : $status = 0;
-    if(!updateOrder($conn, $_GET['id'], $user, $totalPrice, $product, $status, $date)){
+    if(!updateOrder($conn, $_GET['id'], $user, $totalPrice, $quantity, $product, $status, $date)){
         $error = "Error Updating";
     } else {
         $error = "Updated Successfully";
@@ -81,7 +82,7 @@ if(isset($_POST['add'])) {
     $status;
     isset($_POST['date']) && $_POST['date'] != '' ? $date = $_POST['date'] : $date = date("Y-m-d");
     isset($_POST['status']) && $_POST['status'] == "on" ? $status = 1 : $status = 0;
-    if(!insertOrder($conn, $user, $totalPrice, $product, $status, $date)){
+    if(!insertOrder($conn, $user, $totalPrice, $quantity, $product, $status, $date)){
         $error = "Error Adding";
     } else {
         $error = "Added Successfully";

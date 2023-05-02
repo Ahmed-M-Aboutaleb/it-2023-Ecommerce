@@ -9,7 +9,7 @@
                                 <h6 class="mb-0">Name</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <input type="text" class="form-control" name="name" value="<?php echo $_SESSION["name"]; ?>">
+                                <input type="text" class="form-control" name="name" value="<?= $_SESSION["name"]; ?>">
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -17,7 +17,7 @@
                                 <h6 class="mb-0">Email</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <input type="text" class="form-control" name="email" value="<?php echo $_SESSION["email"]; ?>">
+                                <input type="text" class="form-control" name="email" value="<?= $_SESSION["email"]; ?>">
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -51,7 +51,7 @@
                                         <h6 class="mb-0">Order date</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <p><?php echo $order["date"]; ?></p>
+                                        <p><?= $order["date"]; ?></p>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -60,6 +60,14 @@
                                     </div>
                                     <div class="col-sm-9 text-secondary">
                                         <p><?php print ($order["status"] ? 'Approved' : 'Pending') ?></p>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Product quantity</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <p><?= $order['quantity'] ?></p>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -75,7 +83,7 @@
                                         <h6 class="mb-0">Order items</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <?php echo findOneProduct($conn, $order["productId"])["name"]; ?>
+                                        <?= findOneProduct($conn, $order["productId"])["name"]; ?>
                                     </div>
                                 </div>
                             <?php endforeach; ?>

@@ -65,12 +65,13 @@ function signup($conn, $name, $email, $password) {
     $email = validateInput($email);
     $password = validateInput($password);
     $hashedPassword = sha1($password);
+    $date = date('Y-m-d');
     $sql = "SELECT * FROM users WHERE email = '$email'";
     $result = $conn->query($sql);
     if($result->num_rows > 0) {
         return 1;
     }
-    $sql = "INSERT INTO users (name, email, password) VALUES ('" . $name . "', '" . $email . "', '" . $hashedPassword ."')";
+    $sql = "INSERT INTO users (name, email, password, date) VALUES ('" . $name . "', '" . $email . "', '" . $hashedPassword ."', '{$date}')";
     if(!$conn->query($sql)) {
         return 2;
     }

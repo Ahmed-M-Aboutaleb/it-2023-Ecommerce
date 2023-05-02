@@ -70,7 +70,7 @@ Version: 1.0
     
 */
 
-function insertOrder($conn, $user, $totalPrice, $product, $status, $date) {
+function insertOrder($conn, $user, $totalPrice, $quantity, $product, $status, $date) {
     if(!validateInput($user) || !validateInput($totalPrice) || !validateInput($product) || !validateInput($date)) {
         return false;
     }
@@ -79,7 +79,7 @@ function insertOrder($conn, $user, $totalPrice, $product, $status, $date) {
     $product = validateInput($product);
     validateInput($status) ? $status = validateInput($status) : $status = 0;
     $date = validateInput($date);
-    $sql = "INSERT INTO orders (user, totalPrice, productId, status, date) VALUES ('$user', '$totalPrice', '$product', '$status', '$date')";
+    $sql = "INSERT INTO orders (user, totalPrice, quantity, productId, status, date) VALUES ('$user', '$totalPrice', '$quantity', '$product', '$status', '$date')";
     if(!$conn->query($sql)) {
         return false;
     }
@@ -94,7 +94,7 @@ Parameters: $conn - The database connection. $id - The id of the order. $user - 
 Version: 1.0
 */
 
-function updateOrder($conn, $id, $user, $totalPrice, $product, $status, $date) {
+function updateOrder($conn, $id, $user, $totalPrice, $quantity, $product, $status, $date) {
     if(!validateInput($id) || !validateInput($user) || !validateInput($totalPrice) || !validateInput($product) || !validateInput($date)) {
         return false;
     }
@@ -104,7 +104,7 @@ function updateOrder($conn, $id, $user, $totalPrice, $product, $status, $date) {
     $product = validateInput($product);
     validateInput($status) ? $status = validateInput($status) : $status = 0;
     $date = validateInput($date);
-    $sql = "UPDATE orders SET user = '$user', totalPrice = '$totalPrice', productId = '$product', status = '$status', date = '$date' WHERE id = $id";
+    $sql = "UPDATE orders SET user = '$user', totalPrice = '$totalPrice', quantity = '$quantity', productId = '$product', status = '$status', date = '$date' WHERE id = $id";
     if(!$conn->query($sql)) {
         return false;
     }

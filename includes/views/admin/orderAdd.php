@@ -32,14 +32,17 @@
                     <input class="form-control" type="text" name="date" placeholder="date (year-month-day)">
                 </div>
                 <div class="mb-3">
-                    <input class="form-control" type="text" name="totalPrice" value="<?php echo $order['totalPrice'] ?>" placeholder="total price">
+                    <input class="form-control" type="number" name="quantity" min="1" max="10" placeholder="quantity">
+                </div>
+                <div class="mb-3">
+                    <input class="form-control" type="text" name="totalPrice" placeholder="total price">
                 </div>
                 <div class="mb-3 text-center">
                     <input type="checkbox" class="btn-check" name="status" id="btn-check-outlined" autocomplete="off">
                     <label class="btn btn-outline-success" for="btn-check-outlined">Approved</label>
                 </div>
                 <div class="mb-3">
-                    <p class="text-center"><?php echo $error ?></p>
+                    <p class="text-center"><?= $error ?></p>
                 </div>
                 <div class="mb-3">
                     <input class="btn btn-success" type="submit" name="add" value="Add">

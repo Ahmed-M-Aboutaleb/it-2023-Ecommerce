@@ -1,7 +1,7 @@
 <main class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
     <div class="card" style="width: 20rem;">
         <div class="card-body">
-            <form method="post" class="needs-validation" novalidate action="order.php?id=<?php echo $order['id'] ?>">
+            <form method="post" class="needs-validation" novalidate action="order.php?id=<?= $order['id'] ?>">
                 <div class="mb-3">
                     <select class="form-select" name="user" aria-label="Users" required>
                         <?php
@@ -22,7 +22,7 @@
                     <?php
                         if($products) {
                             while($product = $products->fetch_assoc()) {
-                                if($product['id'] == $order['product']) {
+                                if($product['id'] == $order['productId']) {
                                     echo "<option value='{$product['id']}' selected>{$product['name']} - {$product['id']}</option>";
                                 }else{
                                     echo "<option value='{$product['id']}'>{$product['name']} - {$product['id']}</option>";
@@ -33,23 +33,26 @@
                 </select>
                 </div>
                 <div class="mb-3">
-                    <input class="form-control" type="text" name="date" value="<?php echo $order['date'] ?>" placeholder="date (year-month-day)">
+                    <input class="form-control" type="text" name="date" value="<?= $order['date'] ?>" placeholder="date (year-month-day)">
                 </div>
                 <div class="mb-3">
-                    <input class="form-control" type="text" name="totalPrice" value="<?php echo $order['totalPrice'] ?>" placeholder="total price">
+                    <input class="form-control" type="number" name="quantity" min="1" max="10" value="<?= $order['quantity'] ?>" placeholder="quantity">
+                </div>
+                <div class="mb-3">
+                    <input class="form-control" type="text" name="totalPrice" value="<?= $order['totalPrice'] ?>" placeholder="total price">
                 </div>
                 <div class="mb-3 text-center">
                     <input type="checkbox" class="btn-check" name="status" <?php $order['status'] == 1 ? print "checked": "" ?> id="btn-check-outlined" autocomplete="off">
                     <label class="btn btn-outline-success" for="btn-check-outlined">Approved</label>
                 </div>
                 <div class="mb-3">
-                    <p class="text-center"><?php echo $error ?></p>
+                    <p class="text-center"><?= $error ?></p>
                 </div>
                 <div class="mb-3">
                     <input class="btn btn-success" type="submit" name="update" value="Update">
                 </div>
             </form>
-            <a href="/admin/order.php?delete=<?php echo $id ?>" class="btn btn-danger">Delete</a>
+            <a href="/admin/order.php?delete=<?= $id ?>" class="btn btn-danger">Delete</a>
         </div>
     </div>
 </main>

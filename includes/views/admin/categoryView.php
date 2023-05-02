@@ -1,12 +1,12 @@
 <main class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
     <div class="card" style="width: 20rem;">
         <div class="card-body">
-            <form method="post" class="needs-validation" novalidate action="category.php?id=<?php echo $id; ?>">
+            <form method="post" class="needs-validation" novalidate action="category.php?id=<?= $id; ?>">
                 <div class="mb-3">
-                    <input class="form-control" required type="text" name="name" placeholder="Name" value="<?php echo $category['name'] ?>">
+                    <input class="form-control" required type="text" name="name" placeholder="Name" value="<?= $category['name'] ?>">
                 </div>
                 <div class="mb-3">
-                    <input class="form-control" type="text" name="date" value="<?php echo $category['date'] ?>" placeholder="date (year-month-day)">
+                    <input class="form-control" type="text" name="date" value="<?= $category['date'] ?>" placeholder="date (year-month-day)">
                 </div>
                 <select class="form-select" name="admin" aria-label="Admins" required>
                     <?php
@@ -22,13 +22,13 @@
                     ?>
                 </select>
                 <div class="mb-3">
-                    <p class="text-center"><?php echo $error ?></p>
+                    <p class="text-center"><?= $error ?></p>
                 </div>
                 <div class="mb-3">
                     <input class="btn btn-success" type="submit" name="update" value="Update">
                 </div>
             </form>
-            <a href="/admin/category.php?delete=<?php echo $id ?>" class="btn btn-danger">Delete</a>
+            <a href="/admin/category.php?delete=<?= $id ?>" class="btn btn-danger">Delete</a>
         </div>
     </div>
 </main>

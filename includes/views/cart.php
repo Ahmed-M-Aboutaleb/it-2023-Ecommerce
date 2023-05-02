@@ -10,7 +10,7 @@
                                     <?php if($products):?>
                                         <div class="d-flex justify-content-between align-items-center mb-5">
                                             <h1 class="fw-bold mb-0 text-black">Shopping Cart</h1>
-                                            <h6 class="mb-0 text-muted"><?php echo count($products) ?> items</h6>
+                                            <h6 class="mb-0 text-muted"><?= count($products) ?> items</h6>
                                         </div>
                                         <hr class="my-4">
                                         <?php foreach($products as $product):?>
@@ -25,13 +25,13 @@
                                                 </div>
                                                 <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
                                                     <button class="btn btn-link px-2"
-                                                        onclick="dec(<?php echo $product['id']; ?>)">
+                                                        onclick="dec(<?= $product['id']; ?>)">
                                                         <i class="fas fa-minus"></i>
                                                     </button>
-                                                    <input id="<?php echo $product['id']?>" style="min-width: 2.5rem;" min="0" name="quantity" value="<?= $product['quantity'] ?>" type="number"
+                                                    <input id="<?= $product['id']?>" style="min-width: 2.5rem;" min="0" name="quantity" value="<?= $product['quantity'] ?>" type="number"
                                                         class="form-control form-control-sm disabled" disabled />
                                                     <button class="btn btn-link px-2"
-                                                        onclick="inc(<?php echo $product['id']; ?>)">
+                                                        onclick="inc(<?= $product['id']; ?>)">
                                                         <i class="fas fa-plus"></i>
                                                     </button>
                                                 </div>
@@ -39,7 +39,7 @@
                                                     <h6 class="mb-0 price"><?=$product['price']?>.00$</h6>
                                                 </div>
                                                 <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                                                    <button class="btn btn-link" onclick="remove(<?php echo $product['id']?>)" class="text-muted"><i class="fas fa-times"></i></button>
+                                                    <button class="btn btn-link" onclick="remove(<?= $product['id']?>)" class="text-muted"><i class="fas fa-times"></i></button>
                                                 </div>
                                             </div>
                                             <hr class="my-4">
@@ -116,6 +116,7 @@ $(document).ready(function() {
 
 function dec(id) {
     var currentVal = parseInt($(`#${id}`).val());
+    if(currentVal == 1) return;
     $(`#${id}`).val(currentVal -1)
     $.post("/cart.php",
     {
@@ -128,6 +129,8 @@ function dec(id) {
 
 function inc(id) {
     var currentVal = parseInt($(`#${id}`).val());
+    console.log(currentVal);
+    if(currentVal == 10) return;
     $(`#${id}`).val(currentVal +1)
     $.post("/cart.php",
     {

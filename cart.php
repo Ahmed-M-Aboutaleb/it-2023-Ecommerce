@@ -43,7 +43,6 @@ if(isset($_POST["update"])) {
 if(isset($_POST["placeOrder"])) {
     placeOrder($conn);
     unset($_SESSION['cart']);
-    header('Location: /');
 }
 
 if(isset($_POST["remove"])) {

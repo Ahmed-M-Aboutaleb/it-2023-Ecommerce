@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Apr 30, 2023 at 07:24 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Host: 127.0.0.1
+-- Generation Time: May 02, 2023 at 08:19 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `shopDB`
+-- Database: `shopdb`
 --
 
 -- --------------------------------------------------------
@@ -76,7 +76,8 @@ CREATE TABLE `orders` (
   `id` int(255) NOT NULL,
   `user` int(255) NOT NULL,
   `totalPrice` int(11) NOT NULL DEFAULT 0,
-  `productId` int(11) NOT NULL,
+  `productId` int(11) NOT NULL DEFAULT 1,
+  `quantity` int(255) NOT NULL,
   `status` int(1) NOT NULL DEFAULT 0,
   `date` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -85,8 +86,8 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `user`, `totalPrice`, `productId`, `status`, `date`) VALUES
-(7, 1, 3, 23, 0, '2023-04-27');
+INSERT INTO `orders` (`id`, `user`, `totalPrice`, `productId`, `quantity`, `status`, `date`) VALUES
+(19, 1, 3, 23, 1, 0, '2023-05-02');
 
 -- --------------------------------------------------------
 
@@ -112,7 +113,6 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`id`, `name`, `description`, `price`, `image`, `date`, `rating`, `category`, `seller`) VALUES
 (23, 'Brown Sunglasses', 'Introducing our latest sunglasses collection, designed to elevate your style and protect your eyes from harmful UV rays.\r\n\r\nOur sunglasses feature sleek and modern frames crafted from high-quality materials that are both durable and lightweight. The lenses are made from premium polarized materials that reduce glare and enhance visual clarity, providing you with a crisp and clear vision.\r\n\r\nOur collection includes a wide range of styles, from classic aviators to trendy cat-eye frames, ensuring th', 3, 'shop_01.jpg', '2023-04-19', 3, 4, 1),
-(24, 'Blue Dress', 'Introducing our stunning blue dress, perfect for any occasion where you want to make a statement.\r\n\r\nThis dress features a beautiful shade of blue that will catch everyone&#039;s eye, and the elegant silhouette is designed to flatter your figure. The dress is crafted from high-quality materials, ensuring that it will be comfortable to wear and last for years to come.\r\n\r\nThe bodice of the dress features a fitted design, with a sweetheart neckline and spaghetti straps that add a touch of femininit', 20, 'shop_03.jpg', '2023-04-19', 4, 4, 1),
 (25, 'Red Socks', 'Introducing our vibrant and stylish red socks, designed to add a pop of color to any outfit.\r\n\r\nCrafted from high-quality materials, these socks are soft, comfortable, and durable, making them perfect for everyday wear. The bright and bold shade of red will add a touch of personality to your wardrobe, making it easy to stand out from the crowd.\r\n\r\nThese socks are designed to fit most foot sizes, ensuring that they will be a comfortable fit for everyone. The ribbed design on the cuff ensures that', 1, 'shop_04.jpg', '2023-04-19', 5, 4, 1),
 (26, 'Men&#039;s Blazer', 'Introducing our sophisticated men&#039;s blazer, perfect for adding a touch of elegance to any outfit.\r\n\r\nCrafted from high-quality materials, this blazer features a sleek and modern design that is both stylish and comfortable. The tailored fit ensures that the blazer will flatter your body shape, providing a sharp and polished look.\r\n\r\nThe blazer features a classic lapel collar, with two button closures that add a touch of sophistication. The pockets on the front of the blazer are both function', 300, 'shop_05.jpg', '2023-04-19', 4, 4, 1),
 (27, 'HP Personal Computer', 'Introducing our HP PC, designed to provide you with powerful performance and reliable functionality for all your computing needs.\r\n\r\nOur HP PC is equipped with the latest generation Intel Core processor and plenty of RAM, providing lightning-fast speeds and seamless multitasking capabilities. The high-performance graphics card ensures that you can enjoy stunning visuals and smooth gameplay, whether you&#039;re streaming your favorite movies or playing the latest games.\r\n\r\nThe PC features a sleek', 1000, 'PC.jpg', '2023-04-19', 4, 3, 1),
@@ -183,7 +183,8 @@ ALTER TABLE `orders`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `seller` (`seller`);
+  ADD KEY `seller` (`seller`),
+  ADD KEY `category` (`category`);
 
 --
 -- Indexes for table `users`
@@ -206,13 +207,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `feedbacks`
 --
 ALTER TABLE `feedbacks`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -224,7 +225,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Constraints for dumped tables
@@ -247,6 +248,7 @@ ALTER TABLE `orders`
 -- Constraints for table `products`
 --
 ALTER TABLE `products`
+  ADD CONSTRAINT `category` FOREIGN KEY (`category`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `seller` FOREIGN KEY (`seller`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 

@@ -125,6 +125,7 @@ function updateUser($conn, $id, $name, $email, $password, $admin, $date) {
     $name = validateInput($name);
     $email = validateInput($email);
     $password = validateInput($password);
+    validateInput($date) ? $date = validateInput($date) : $date = date("Y-m-d H:i:s");
     validateInput($admin) ? $admin = validateInput($admin) : $admin = 0;
     if(!validateInput($id) || !validateInput($name) || !validateInput($email) ) {
         return false;

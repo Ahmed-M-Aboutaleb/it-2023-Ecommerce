@@ -19,7 +19,7 @@
                     <label class="btn btn-outline-success" for="btn-check-outlined">Admin</label>
                 </div>
                 <div class="mb-3">
-                    <p class="text-center"><?php echo $error ?></p>
+                    <p class="text-center"><?= $error ?></p>
                 </div>
                 <div class="mb-3">
                     <input class="btn btn-success" type="submit" name="add" value="Add">

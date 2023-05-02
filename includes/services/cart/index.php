@@ -78,7 +78,9 @@ function placeOrder($conn) {
     $date = date("Y-m-d");
     foreach($cart as $productId => $quantity) {
         $product = findOneProduct($conn, $productId);
-        insertOrder($conn, $user, $product['price'], $productId, $status, $date);
+        $price = $product['price'];
+        $total = $price * $quantity;
+        insertOrder($conn, $user, $total, $quantity, $productId, $status, $date);
     }
 }
 

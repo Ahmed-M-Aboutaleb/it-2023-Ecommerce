@@ -2,25 +2,25 @@
     <div class= "row">
         <div class="col-lg-3">
             <div class="card bg-first p-4 mb-3" style="max-width: 80%; margin: 3rem auto;">
-                <h3><?php echo getUsersCount($conn); ?></h3>
+                <h3><?= getUsersCount($conn); ?></h3>
                 <p style="font-weight:200">Users</p>
             </div>
         </div>
         <div class="col-lg-3">
             <div class="card bg-secound p-4 mb-3" style="max-width: 80%; margin: 3rem auto;">
-                <h3><?php echo getProductsCount($conn); ?></h3>
+                <h3><?= getProductsCount($conn); ?></h3>
                 <p style="font-weight:200">Products</p>
             </div>
         </div>
         <div class="col-lg-3">
             <div class="card bg-third p-4 mb-3" style="max-width: 80%; margin: 3rem auto;">
-                <h3><?php echo getCategoriesCount($conn); ?></h3>
+                <h3><?= getCategoriesCount($conn); ?></h3>
                 <p style="font-weight:200">Categories</p>
             </div>
         </div>
         <div class="col-lg-3">
             <div class="card bg-fourth p-4 mb-3" style="max-width: 80%; margin: 3rem auto;">
-                <h3><?php echo getOrdersCount($conn); ?></h3>
+                <h3><?= getOrdersCount($conn); ?></h3>
                 <p style="font-weight:200">Orders</p>
             </div>
         </div>
@@ -40,7 +40,7 @@ const data = {
     labels: labels,
     datasets: [{
         label: 'Statistics',
-        data: [<?php echo getUsersCount($conn) ?>, <?php echo getProductsCount($conn) ?>, <?php echo getCategoriesCount($conn) ?>, <?php echo getOrdersCount($conn) ?>],
+        data: [<?= getUsersCount($conn) ?>, <?= getProductsCount($conn) ?>, <?= getCategoriesCount($conn) ?>, <?= getOrdersCount($conn) ?>],
         backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(255, 159, 64, 0.2)',
