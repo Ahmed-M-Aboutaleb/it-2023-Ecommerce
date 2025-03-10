@@ -25,4 +25,4 @@ This is a full-featured e-commerce website developed as a final project for an I
 - **Frontend:** HTML, CSS, JavaScript (vanilla and jQuery)
 - **Backend:** PHP (Core PHP, no framework)
 - **Database:** MySQL
-- **Hosting:** 000webhost
+- **Hosting:** alwaysdata
