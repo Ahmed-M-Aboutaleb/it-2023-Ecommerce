@@ -4,7 +4,7 @@
 
 This is a full-featured e-commerce website developed as a final project for an IT course. It allows users to browse products, add items to the cart, and complete purchases. The system includes user authentication, an admin dashboard, and order management.
 
-🔗 **Live Preview:**[Shopping IT](https://shoppingitt.000webhostapp.com/)
+🔗 **Live Preview:**[Shopping IT](it-ecommerce.alwaysdata.net/index.php)
 
 ## Features
 
